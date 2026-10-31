@@ -9,7 +9,12 @@ export default function CourseScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>{nome}</Text>
       <Text style={styles.desc}>{descricao}</Text>
-      <Button title="Ver Estudantes" onPress={() => router.push({ pathname: "/students", params: { estudantes } })} />
+      <Button
+        title="Ver Estudantes"
+        onPress={() =>
+          router.push({ pathname: "/students", params: { nome, estudantes } })
+        }
+      />
     </View>
   );
 }
