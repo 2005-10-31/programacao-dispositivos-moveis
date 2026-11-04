@@ -56,6 +56,13 @@ export default function App() {
     );
   };
 
+  // Eliminar uma tarefa
+  const deleteTask = (taskId) => {
+    setTasks((currentTasks) =>
+      currentTasks.filter((task) => task.id !== taskId)
+    );
+  };
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -66,6 +73,7 @@ export default function App() {
               {...props}
               tasks={tasks}
               onToggleTask={toggleTask}
+              onDeleteTask={deleteTask}
             />
           )}
         </Stack.Screen>
@@ -84,6 +92,7 @@ export default function App() {
             />
           )}
         </Stack.Screen>
+        
 
       </Stack.Navigator>
     </NavigationContainer>
