@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider, useTheme } from './src/context/ThemeContext';
+import { CartProvider } from './src/context/CartContext';
 import Header from './src/components/Header';
 import TabBar from './src/components/TabBar';
 import ProdutosScreen from './src/screens/ProdutosScreen';
@@ -29,7 +30,9 @@ function Main() {
 export default function App() {
   return (
     <ThemeProvider>
-      <Main />
+      <CartProvider>
+        <Main />
+      </CartProvider>
     </ThemeProvider>
   );
 }
