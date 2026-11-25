@@ -2,10 +2,12 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../context/ThemeContext';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Header() {
   const { tema, modo, alternarTema } = useTheme();
   const { totalItens } = useCart();
+  const { usuario } = useAuth();
 
   return (
     <View
@@ -17,7 +19,7 @@ export default function Header() {
       <View>
         <Text style={[styles.titulo, { color: tema.texto }]}>Loja Mobile</Text>
         <Text style={[styles.subtitulo, { color: tema.textoSecundario }]}>
-          Visitante
+          {usuario ? `Olá, ${usuario}!` : 'Visitante'}
         </Text>
       </View>
 
